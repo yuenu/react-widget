@@ -1,7 +1,7 @@
 import React from "react";
-import Links from "./Links.js";
+import Links from "./Links";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className="ui secondary pointing menu">
       <Links href="/" className="item">

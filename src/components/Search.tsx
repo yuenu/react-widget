@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Search = () => {
+type Result = {
+  ns: number;
+  size: number;
+  pageid: number;
+  title: string;
+  snippet: string;
+  wordcount: number;
+  timestamp: string;
+};
+
+type Response = {
+  batchcomplete: string;
+  continue: {
+    continue: string;
+    sroffset: number;
+  };
+  query: {
+    search: Result[];
+    searchinfo: {
+      suggestion: string;
+      suggestionsnippet: string;
+      totalhits: number;
+    };
+  };
+};
+
+const Search: React.FC = () => {
   const [term, setTerm] = useState("pro");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Result[]>([]);
 
   useEffect(() => {
     const timeId = setTimeout(() => {
@@ -18,16 +44,18 @@ const Search = () => {
 
   useEffect(() => {
     const search = async () => {
-      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
-        params: {
-          action: "query",
-          list: "search",
-          origin: "*",
-          format: "json",
-          srsearch: debouncedTerm,
-        },
-      });
-
+      const { data }: { data: Response } = await axios.get(
+        "https://en.wikipedia.org/w/api.php",
+        {
+          params: {
+            action: "query",
+            list: "search",
+            origin: "*",
+            format: "json",
+            srsearch: debouncedTerm,
+          },
+        }
+      );
       setResults(data.query.search);
     };
 
@@ -36,7 +64,7 @@ const Search = () => {
     }
   }, [debouncedTerm]);
 
-  const renderedResults = results.map((result) => {
+  const renderedResults = results.map((result: Result) => {
     return (
       <div key={result.pageid} className="item">
         <div className="right floated content">

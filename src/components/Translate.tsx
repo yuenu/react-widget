@@ -1,26 +1,13 @@
 import React, { useState } from "react";
-import Dropdown from "./Dropdown.js";
-import Convert from "./Convert.js";
+import Dropdown from "./Dropdown";
+import Convert from "./Convert";
 
 // const API_key = "AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM";
 
-const options = [
-  {
-    label: "Afrikaans",
-    value: "af",
-  },
-  {
-    label: "Chinese",
-    value: "zh-TW",
-  },
-  {
-    label: "Hindi",
-    value: "hi",
-  },
-];
+import { Langs } from "../apis/LocalData";
 
-const Translate = () => {
-  const [language, setLanguage] = useState(options[0]);
+const Translate: React.FC = () => {
+  const [language, setLanguage] = useState(Langs[0]);
   const [text, setText] = useState("");
 
   return (
@@ -35,7 +22,7 @@ const Translate = () => {
         label="Select a Language"
         selected={language}
         onSelectedChange={setLanguage}
-        options={options}
+        options={Langs}
       />
       <hr />
       <h3 className="ui header">Output</h3>
