@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const Route = ({ path, children }) => {
+type Props = {
+  path: string
+}
+
+const Route: React.FC<Props> = ({ path, children }) => {
+
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
@@ -15,7 +20,7 @@ const Route = ({ path, children }) => {
     };
   }, []);
 
-  return currentPath === path ? children : null;
+  return currentPath === path ? (children  as React.ReactElement) : null;
 };
 
 export default Route;

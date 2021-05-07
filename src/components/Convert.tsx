@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Convert = ({ language, text }) => {
+import type { Lang } from '../apis/LocalData'
+
+type Props = {
+  language: Lang
+  text: string
+}
+
+const Convert: React.FC<Props> = ({ language, text }) => {
   const [translated, setTranslated] = useState("");
   const [debouncedText, setDebouncedText] = useState("");
 

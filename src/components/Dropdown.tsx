@@ -1,12 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const DropDown = ({ options, selected, onSelectedChange, label }) => {
+// Type 
+import { Option } from '../apis/LocalData'
+
+type Props = {
+  label: string
+  options: Option[]
+  selected: Option
+  onSelectedChange: (option: Option) => void
+}
+
+type HandleMouseClickType =  {
+  target: Node | null
+}
+
+
+const DropDown: React.FC<Props> = ({ options, selected, onSelectedChange, label }) => {
   const [open, setOpen] = useState(false);
-  const ref = useRef();
+  const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onBodyClick = (event) => {
-      if (ref.current && ref.current.contains(event.target)) {
+    // TODO: Fine out the click event type
+    const onBodyClick = (event: any) => {
+      console.log(event)
+      if (formRef.current && formRef.current.contains(event.target)) {
         return;
       }
       setOpen(false);
@@ -37,7 +54,7 @@ const DropDown = ({ options, selected, onSelectedChange, label }) => {
 
   return (
     <>
-      <div ref={ref} className="ui form">
+      <div ref={formRef} className="ui form">
         <div className="field">
           <label className="label">{label}</label>
           <div

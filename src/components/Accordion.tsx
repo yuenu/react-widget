@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 
-const Accordion = ({ items }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+// Type
+import { Item } from '../apis/LocalData'
 
-  const onTitleClick = (index) => {
+export type Props = {
+  items: Item[]
+}
+
+const Accordion: React.FC<Props> = ({ items }) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const onTitleClick = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
     } else {
