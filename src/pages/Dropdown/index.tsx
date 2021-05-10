@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 // Type
-import { Option } from "../apis/LocalData";
+import { Option } from "apis/LocalData";
 
 type Props = {
   label: string;

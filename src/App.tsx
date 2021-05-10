@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Accordion from "./components/Accordion";
-import Search from "./components/Search";
-import DropDown from "./components/Dropdown";
-import Translate from "./components/Translate";
-import Route from "./components/Route";
-import Header from "./components/Header";
+import Header from "components/Layout/Header";
+import Accordion from "pages/Accordion";
+import Search from "pages/Search";
+import DropDown from "pages/Dropdown";
+import Translate from "pages/Translate";
+import Route from "router";
 
-import { items, options } from "./apis/LocalData";
+import { items, options } from "apis/LocalData";
 
 const App: React.FC = () => {
   const [selected, setSelected] = useState(options[0]);
@@ -36,26 +36,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// return (
-//   <div className="ui container">
-//     <Header />
-//     <Route path="/">
-//       <Accordion items={items} />
-//     </Route>
-//     <Route path="/list">
-//       <Search />
-//     </Route>
-//     <Route path="/dropdown">
-//       <DropDown
-//         label="Select a color"
-//         options={options}
-//         selected={selected}
-//         onSelectedChange={setSelected}
-//       />
-//     </Route>
-//     <Route path="/translate">
-//       <Translate />
-//     </Route>
-//   </div>
-// );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import type { Lang } from "../apis/LocalData";
+import type { Lang } from "apis/LocalData";
 
 type Props = {
   language: Lang;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Type
-import { Item } from "../apis/LocalData";
+import { Item } from "apis/LocalData";
 
 export type Props = {
   items: Item[];

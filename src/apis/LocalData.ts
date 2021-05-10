@@ -26,6 +26,10 @@ export const options = [
     label: "A Shade of Bule",
     value: "blue",
   },
+  {
+    label: "Sweet orange",
+    value: "orange"
+  }
 ];
 
 export const Langs = [
@@ -44,21 +48,6 @@ export const Langs = [
 ];
 
 export type Item = {
-<<<<<<< HEAD
-  title: string,
-  content: string
-}
-
-export type Lang = {
-  label: string
-  value: string
-}
-
-export type Option = {
-  label: string
-  value: string
-} 
-=======
   title: string;
   content: string;
 };
@@ -72,4 +61,3 @@ export type Option = {
   label: string;
   value: string;
 };
->>>>>>> 666700ac455374ebdb7fa541f450a956c785c1a8
