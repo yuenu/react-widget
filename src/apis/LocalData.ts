@@ -44,6 +44,7 @@ export const Langs = [
 ];
 
 export type Item = {
+<<<<<<< HEAD
   title: string,
   content: string
 }
@@ -57,3 +58,18 @@ export type Option = {
   label: string
   value: string
 } 
+=======
+  title: string;
+  content: string;
+};
+
+export type Lang = {
+  label: string;
+  value: string;
+};
+
+export type Option = {
+  label: string;
+  value: string;
+};
+>>>>>>> 666700ac455374ebdb7fa541f450a956c785c1a8

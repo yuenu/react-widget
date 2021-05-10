@@ -4,8 +4,7 @@ import Convert from "./Convert";
 
 // const API_key = "AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM";
 
-import {Langs} from '../apis/LocalData'
-
+import { Langs } from "../apis/LocalData";
 
 const Translate: React.FC = () => {
   const [language, setLanguage] = useState(Langs[0]);

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 // Type
-import { Item } from '../apis/LocalData'
+import { Item } from "../apis/LocalData";
 
 export type Props = {
-  items: Item[]
-}
+  items: Item[];
+};
 
 const Accordion: React.FC<Props> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

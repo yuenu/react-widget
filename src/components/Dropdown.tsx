@@ -1,28 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Type 
-import { Option } from '../apis/LocalData'
+// Type
+import { Option } from "../apis/LocalData";
 
 type Props = {
-  label: string
-  options: Option[]
-  selected: Option
-  onSelectedChange: (option: Option) => void
-}
+  label: string;
+  options: Option[];
+  selected: Option;
+  onSelectedChange: (option: Option) => void;
+};
 
-type HandleMouseClickType =  {
-  target: Node | null
-}
+// type HandleMouseClickType =  {
+//   target: EventTarget
+// }
 
-
-const DropDown: React.FC<Props> = ({ options, selected, onSelectedChange, label }) => {
+const DropDown: React.FC<Props> = ({
+  options,
+  selected,
+  onSelectedChange,
+  label,
+}) => {
   const [open, setOpen] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // TODO: Fine out the click event type
     const onBodyClick = (event: any) => {
-      console.log(event)
       if (formRef.current && formRef.current.contains(event.target)) {
         return;
       }
