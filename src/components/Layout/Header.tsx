@@ -16,6 +16,9 @@ const Header: React.FC = () => {
       <Links href="/translate" className="item">
         Translate
       </Links>
+      <Links href="/dropanddrag" className="item">
+        Drop and Drag
+      </Links>
     </div>
   );
 };

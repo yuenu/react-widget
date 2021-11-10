@@ -4,6 +4,7 @@ import Accordion from "pages/Accordion";
 import Search from "pages/Search";
 import DropDown from "pages/Dropdown";
 import Translate from "pages/Translate";
+import DropAndDrag from './pages/DropAndDrag'
 import Route from "router";
 
 import { items, options } from "apis/LocalData";
@@ -30,6 +31,9 @@ const App: React.FC = () => {
       </Route>
       <Route path="/translate">
         <Translate />
+      </Route>
+      <Route path="/dropanddrag">
+        <DropAndDrag />
       </Route>
     </div>
   );
