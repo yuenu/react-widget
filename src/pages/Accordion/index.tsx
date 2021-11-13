@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 // Type
 import { Item } from "apis/LocalData";
 
@@ -10,7 +9,12 @@ export type Props = {
 const Accordion: React.FC<Props> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const hasHistory = typeof window.history.pushState === 'function'
-  console.log(hasHistory)
+  const routerChange = () => {
+    // navigate('/list')
+    window.location.pathname = '/list'
+  }
+
+
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
@@ -41,6 +45,7 @@ const Accordion: React.FC<Props> = ({ items }) => {
   return (
     <>
       pushState: {hasHistory + ''}
+      <button onClick={routerChange}>Change router</button>
       <div className="ui styled accordion">
         {renderedItems}
       </div>
