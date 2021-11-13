@@ -24,7 +24,7 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   const originRoute = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    window.history.pushState({}, "", 'dropdown');
+    window.history.pushState({url: 'dropdown'}, '', 'dropdown');
 
     const navEvent = new PopStateEvent("popstate");
     window.dispatchEvent(navEvent);
