@@ -9,7 +9,8 @@ export type Props = {
 
 const Accordion: React.FC<Props> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
+  const hasHistory = typeof window.history.pushState === 'function'
+  console.log(hasHistory)
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
@@ -20,6 +21,7 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   const renderedItems = items.map((item, index) => {
     const active = index === activeIndex ? "active" : "";
+    
 
     return (
       <React.Fragment key={item.title}>
@@ -36,7 +38,13 @@ const Accordion: React.FC<Props> = ({ items }) => {
     );
   });
 
-  return <div className="ui styled accordion">{renderedItems}</div>;
-};
+  return (
+    <>
+      pushState: {hasHistory + ''}
+      <div className="ui styled accordion">
+        {renderedItems}
+      </div>
+    </>
+)}
 
 export default Accordion;
