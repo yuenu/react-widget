@@ -9,6 +9,20 @@ export type Props = {
 const Accordion: React.FC<Props> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  ////////////////////////////
+  // Testing code
+  const hasHistory = typeof window.history.pushState === 'function'
+  const changePathname = () => {
+    // navigate('/list')
+    window.location.pathname = '/list'
+  }
+
+  const locationReplcae = () => {
+    const url = window.location.origin + '/dropdown'
+    window.location.replace(url)
+  }
+
+  /////////////////////////
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
@@ -38,6 +52,10 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   return (
     <>
+      pushState: {hasHistory + ''}
+      <button onClick={changePathname}>changePathname</button>
+      <button onClick={locationReplcae}>locationReplcae</button>
+      <button onClick={changePathname}>changePathname</button>
       <div className="ui styled accordion">
         {renderedItems}
       </div>
