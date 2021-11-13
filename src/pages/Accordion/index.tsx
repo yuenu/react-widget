@@ -22,6 +22,14 @@ const Accordion: React.FC<Props> = ({ items }) => {
     window.location.replace(url)
   }
 
+  const originRoute = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.history.pushState({}, "", 'dropdown');
+
+    const navEvent = new PopStateEvent("popstate");
+    window.dispatchEvent(navEvent);
+  }
+
   /////////////////////////
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
@@ -55,7 +63,7 @@ const Accordion: React.FC<Props> = ({ items }) => {
       pushState: {hasHistory + ''}
       <button onClick={changePathname}>changePathname</button>
       <button onClick={locationReplcae}>locationReplcae</button>
-      <button onClick={changePathname}>changePathname</button>
+      <button onClick={originRoute}>originRoute</button>
       <div className="ui styled accordion">
         {renderedItems}
       </div>

@@ -10,7 +10,7 @@ const Links: React.FC<Props> = ({ className, href, children }) => {
     if (e.metaKey || e.ctrlKey) return;
 
     e.preventDefault();
-    window.history.pushState(href, "", href);
+    window.history.pushState({}, "", href);
 
     const navEvent = new PopStateEvent("popstate");
     window.dispatchEvent(navEvent);
