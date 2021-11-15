@@ -41,6 +41,8 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   return (
     <div className="ui styled accordion">
+      pushState: {typeof window.history.pushState === 'function' ? 'true' : 'false'} <hr />
+      PopStateEvent: {typeof PopStateEvent === 'function' ? 'true' : 'false'}<hr />
       {renderedItems}
     </div>
 )}
