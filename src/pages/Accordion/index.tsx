@@ -41,6 +41,7 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   return (
     <div className="ui styled accordion">
+      <h2>Typescript</h2>
       pushState: {typeof window.onpopstate === 'object' ? 'true' : 'false'} <hr />
       PopStateEvent: {typeof PopStateEvent === 'function' ? 'true' : 'false'}<hr />
       {renderedItems}
