@@ -15,6 +15,7 @@ const Accordion = ({ items }) => {
     }
   };
 
+
   const renderedItems = items.map((item, index) => {
     const active = index === activeIndex ? "active" : "";
 
@@ -46,6 +47,7 @@ const Accordion = ({ items }) => {
   }
   return (
     <div className="ui styled accordion">
+      <h1>javascript version</h1>
       {(typeof window.onpopstate === 'object') + ''}
       <hr />
       {(typeof PopStateEvent === 'function') + ''}
