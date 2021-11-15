@@ -39,6 +39,12 @@ const Accordion: React.FC<Props> = ({ items }) => {
     );
   });
 
+  window.addEventListener('popstate', ps)
+  
+  function ps () {
+    console.log('popstate')
+  }
+
   return (
     <div className="ui styled accordion">
       <h2>Typescript</h2>
