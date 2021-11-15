@@ -41,12 +41,16 @@ const Accordion = ({ items }) => {
 
   const RouterClcik = (ev) => {
     ev.preventDefault()
-    history.push('/dropdown')
+    window.history.pushState({url: 'dropdown'}, '', )
+
   }
   return (
     <div className="ui styled accordion">
       {(typeof window.onpopstate === 'object') + ''}
-      <a href="/dropdown" onClick={RouterClcik}>Chnage router</a>
+      <hr />
+      {(typeof PopStateEvent === 'function') + ''}
+      <hr />
+      <a onClick={RouterClcik} href="/dropdown" >Chnage router</a>
       {renderedItems}
     </div>
   );
