@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { createBrowserHistory } from 'history'
-
-const history = createBrowserHistory()
-console.log(history)
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
