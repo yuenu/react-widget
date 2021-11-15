@@ -11,25 +11,6 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   ////////////////////////////
   // Testing code
-  const hasHistory = typeof window.history.pushState === 'function'
-  const changePathname = () => {
-    // navigate('/list')
-    window.location.pathname = '/list'
-  }
-
-  const locationReplcae = () => {
-    const url = window.location.origin + '/dropdown'
-    window.location.replace(url)
-  }
-
-  const originRoute = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    window.history.pushState({url: 'dropdown'}, '', 'dropdown');
-
-    const navEvent = new PopStateEvent("popstate");
-    window.dispatchEvent(navEvent);
-  }
-
   /////////////////////////
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
@@ -59,15 +40,9 @@ const Accordion: React.FC<Props> = ({ items }) => {
   });
 
   return (
-    <>
-      pushState: {hasHistory + ''}
-      <button onClick={changePathname}>changePathname</button>
-      <button onClick={locationReplcae}>locationReplcae</button>
-      <button onClick={originRoute}>originRoute</button>
-      <div className="ui styled accordion">
-        {renderedItems}
-      </div>
-    </>
+    <div className="ui styled accordion">
+      {renderedItems}
+    </div>
 )}
 
 export default Accordion;
