@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { createBrowserHistory } from 'history'
+
+const history = createBrowserHistory()
+console.log(history)
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -29,7 +33,23 @@ const Accordion = ({ items }) => {
     );
   });
 
-  return <div className="ui styled accordion">{renderedItems}</div>;
+  window.addEventListener('popstate', ps)
+  
+  function ps (ev) {
+    console.log('popstate', ev)
+  }
+
+  const RouterClcik = (ev) => {
+    ev.preventDefault()
+    history.push('/dropdown')
+  }
+  return (
+    <div className="ui styled accordion">
+      {(typeof window.onpopstate === 'object') + ''}
+      <a href="/dropdown" onClick={RouterClcik}>Chnage router</a>
+      {renderedItems}
+    </div>
+  );
 };
 
 export default Accordion;
