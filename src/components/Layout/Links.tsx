@@ -3,9 +3,11 @@ import React from "react";
 type Props = {
   className: string;
   href: string;
+  role?: string,
+  children: React.ReactElement | React.ReactElement[] | string
 };
 
-const Links: React.FC<Props> = ({ className, href, children }) => {
+const Links = ({ className, href, children, role }: Props) => {
   const onLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     if (e.metaKey || e.ctrlKey) return;
 
@@ -17,7 +19,7 @@ const Links: React.FC<Props> = ({ className, href, children }) => {
   };
 
   return (
-    <a onClick={onLinkClick} className={className} href={href}>
+    <a onClick={onLinkClick} className={className} href={href} role={role}>
       {children}
     </a>
   );
