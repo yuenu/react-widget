@@ -10,25 +10,6 @@ export type Props = {
 const Accordion: React.FC<Props> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  ////////////////////////////
-  // Testing code
-  // const render = (path: string) => {
-  //   document.querySelector('#root')!.innerHTML = ReactDOMServer.renderToString(routersData[path])
-  // }
-
-  function onNavigate(pathname: string) {
-    window.history.pushState(
-      {},
-      pathname,
-      window.location.origin + pathname
-    )
-  }
-
-  const clickHandler = () => {
-    onNavigate('/dropdown')
-    return false
-  }
-  /////////////////////////
   const onTitleClick = (index: number) => {
     if (index === activeIndex) {
       setActiveIndex(null);
@@ -59,10 +40,6 @@ const Accordion: React.FC<Props> = ({ items }) => {
 
   return (
     <div className="ui styled accordion">
-      <h2>Typescript</h2>
-      <a href="/dropdown" onClick={clickHandler}>onNavigate</a>
-      pushState: {typeof window.onpopstate === 'object' ? 'true' : 'false'} <hr />
-      PopStateEvent: {typeof PopStateEvent === 'function' ? 'true' : 'false'}<hr />
       {renderedItems}
     </div>
   )
